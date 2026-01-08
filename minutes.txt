@@ -1,5 +1,7 @@
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX OS OVERVIEW XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 wvwvwvwvwvwvwvwwvwvwvwvw OS Introduction wvwvwvwvwvwvwvwwvwvwvwvw
@@ -49,13 +51,75 @@ OS history - 43
 	1960: integrated circuits, mainframe computers, IBM - 48
 		IBM OS, multics OS - 49
 		personal computers, unix posix BSD - 50
-	
+	1980: hardware is cheap. moores law - 53
+		"six seven" - 53
+	future: end of moore's, size, heterogeneity - 54
+		3d stacking - 55
+		size - 56
+		heterogeneity - 57
 wvwvwvwvwvwvwvwwvwvwvwvw OS Introduction wvwvwvwvwvwvwvwwvwvwvwvw
 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+wvwvwvwvwvwvwvwwvwvwvwvw System Calls 1 wvwvwvwvwvwvwvwwvwvwvwvw
+C program example #1, executable detector - 0
+	explaining code - 0
+	walking through with example input - 5
+
+	"where do these functions come from?", C standard libary - 8
+
+categories of functions - 13
+	no priveleges required: memset - 15
+	always need OS priveleges: file operations - 17
+		"we need to call the OS" syscall - 20
+			it may be different depending on OS and/or processor - 22
+	sometimes needs OS priveleges: print - 23
+		buffer flushing example - 23
+
+user -> syscall -> OS kernel dynamics - 28
+	syscall is OS api - 31
+
+types of syscalls - 32
+	process management - 33
+		process definition vs program definition - 33
+		PCB process control block - 37
+		
+		syscalls for process creation, execution, termination, identification - 38
+
+			process creation - 40
+				fork(), process cloning - 40	
+					how to tell the original from the clone? - 45
+						fork return value: PID of parent - 47
+					order of fork execution is random - 51		
+wvwvwvwvwvwvwvwwvwvwvwvw System Calls 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+
+wvwvwvwvwvwvwvwwvwvwvwvw System Calls 2 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	categories of functions based on privileges - 0
+	process definition, PCB - 2
+	fork() - 2
+
+continuing types of syscalls - 3
+	process management continued - 3
+		exec(), execute another program - 4
+			on variations of exec() - 6
+			PCB doesnt change - 10
+		exit(), terminate the current process - 12
+wvwvwvwvwvwvwvwwvwvwvwvw System Calls 2 wvwvwvwvwvwvwvwwvwvwvwvw
+
+
+wvwvwvwvwvwvwvwwvwvwvwvw System Calls 3 wvwvwvwvwvwvwvwwvwvwvwvw
+asdf
+wvwvwvwvwvwvwvwwvwvwvwvw System Calls 3 wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX OS OVERVIEW XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
@@ -69,5 +133,9 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 +=+=+=+=+=+=+=+= OS Introduction +=+=+=+=+=+=+=+=
 
 ================================================================================================================================
+================================================================================================================================
+
+================================================================================================================================
 ================================ OS OVERVIEW ===================================================================================
 ================================================================================================================================
+
