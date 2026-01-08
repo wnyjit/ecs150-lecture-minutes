@@ -1,4 +1,3 @@
-
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX OS OVERVIEW XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -7,6 +6,19 @@ wvwvwvwvwvwvwvwwvwvwvwvw OS Introduction wvwvwvwvwvwvwvwwvwvwvwvw
 
 what is an os? a bit of history - 0
 	microsoft lawswuit - 0
+	
+	clear definition. sits between hardware and applications - 2
+
+what is a computer? - 3
+	types of computers. desktop, server, IoT, car - 3
+
+components of computer - 4
+	cpu, interrupt controller, timer, memory, uart controller, hdd/sdd controller - 4
+	general purpose computing, intel laptop chipset example - 6
+	embedded computing, smartphone chipset - 7
+
+hardware components - 8
+	processor / cpu - 8
 
 wvwvwvwvwvwvwvwwvwvwvwvw OS Introduction wvwvwvwvwvwvwvwwvwvwvwvw
 
@@ -15,3 +27,16 @@ wvwvwvwvwvwvwvwwvwvwvwvw OS Introduction wvwvwvwvwvwvwvwwvwvwvwvw
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX OS OVERVIEW XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+================================================================================================================================
+================================ OS OVERVIEW ===================================================================================
+================================================================================================================================
+
++=+=+=+=+=+=+=+= OS Introduction +=+=+=+=+=+=+=+=
+
++=+=+=+=+=+=+=+= OS Introduction +=+=+=+=+=+=+=+=
+
+================================================================================================================================
+================================ OS OVERVIEW ===================================================================================
+================================================================================================================================
