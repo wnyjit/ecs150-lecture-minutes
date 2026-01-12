@@ -86,31 +86,91 @@ types of syscalls - 32
 		
 		syscalls for process creation, execution, termination, identification - 38
 
-			process creation - 40
-				fork(), process cloning - 40	
-					how to tell the original from the clone? - 45
-						fork return value: PID of parent - 47
-					order of fork execution is random - 51		
+		process creation - 40
+			fork(), process cloning - 40	
+				how to tell the original from the clone? - 45
+					fork return value: PID of parent - 47
+				order of fork execution is random - 51		
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 1 wvwvwvwvwvwvwvwwvwvwvwvw
 
 
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 2 wvwvwvwvwvwvwvwwvwvwvwvw
 previous lecture recap - 0
 	categories of functions based on privileges - 0
-	process definition, PCB - 2
+	What is a process?, PCB process control block - 2
 	fork() - 2
 
 continuing types of syscalls - 3
 	process management continued - 3
 		exec(), execute another program - 4
-			on variations of exec() - 6
-			PCB doesnt change - 10
+			variations of exec() - 6
+			exec() never returns if it succeeds - 9
+			PID doesnt change, everything else does - 10
+
 		exit(), terminate the current process - 12
+			return values - 14
+			collecting return values - 17
+
+		wait() waitpid(), make parent wait for child - 18
+			WEXITSTATUS - 22
+
+		combining fork() exec() wait() - 26
+			system() - 28
+			this is a shell - 30
+
+		getpid() getppid(), process ID parent process ID - 32
+			unix init - 33
+			"this PID is the shell's!" - 36
+
+	Files and directories - 37
+		tree structure - 37
+		VFS virtual file system
+		
+		open(), read() - 40
+		lseek() - 43
+		fd file descriptor - 44 
+			open() always returns the first available fd - 47
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
 
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 3 wvwvwvwvwvwvwvwwvwvwvwvw
-asdf
+prervious lecture recap - 0
+	fork() exec() wait() is the core of a shell - 0
+	fd file descriptor - 0
+
+continue types of syscalls - 1
+	files and directories - 1
+		first 3 are prefilled STDIN STDOUT STDERR - 2
+		fprintf() - 5
+		fd redirections - 8
+
+		dup2() - 11
+			why use dup2() over open() - 17
+
+		stat() fstat() - 19
+		
+		getcwd() chdir() opendir() closedir() readdir() - 20
+
+	pipes - 24
+		IPC interprocess communication channel - 24
+				*LOUD.mp3* - 27
+		the pipe is a buffer - 29
+		it works with file descriptors - 31
+		processes in the pipe are synchronized - 32
+		pipe() - 33
+			example program 1 - 33
+			example program 2 - 36
+				"This is how a shell forks" - 45
+
+	signals - 45
+		SIGSEGV SIGINT SIGKILL SIGCHLD SIGSTOP SIGCONT - 46
+		raise() kill() alarm() setitimer() sigprocmask() sigpending() sigaction() pause() - 51
+			example program 1 - 52
+				"we will kill ourselves" - 52
+
+	memory management - 54
+		malloc() free() - 54
+		mmap() - 56
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 3 wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
