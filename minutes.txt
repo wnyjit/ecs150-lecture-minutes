@@ -5,7 +5,6 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 wvwvwvwvwvwvwvwwvwvwvwvw OS Introduction wvwvwvwvwvwvwvwwvwvwvwvw
-
 what is an os? a bit of history - 0
 	microsoft lawswuit - 0
 	
@@ -93,7 +92,6 @@ types of syscalls - 32
 				order of fork execution is random - 51		
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 1 wvwvwvwvwvwvwvwwvwvwvwvw
 
-
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 2 wvwvwvwvwvwvwvwwvwvwvwvw
 previous lecture recap - 0
 	categories of functions based on privileges - 0
@@ -131,7 +129,6 @@ continuing types of syscalls - 3
 		fd file descriptor - 44 
 			open() always returns the first available fd - 47
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 2 wvwvwvwvwvwvwvwwvwvwvwvw
-
 
 wvwvwvwvwvwvwvwwvwvwvwvw System Calls 3 wvwvwvwvwvwvwvwwvwvwvwvw
 prervious lecture recap - 0
@@ -175,11 +172,79 @@ wvwvwvwvwvwvwvwwvwvwvwvw System Calls 3 wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+wvwvwvwvwvwvwvwwvwvwvwvw OS Structure wvwvwvwvwvwvwvwwvwvwvwvw
+overview, applications, libraries, user mode, kernel, portable layer, machine-dependent layer - 0
+
+application layer - 1
+	libraries - 2
+		definitions - 2
+		declerations - 3
+			gcc auto-links you to the c library - 4
+			static compilation vs dynamic compilation - 5
+
+	the compilation process - 6
+		CPP preprocessor, CC compiler, AS assembler, LD linker - 7
+
+	the executable, two parts - 11
+		directly from executable - 11
+		created at runtime - 12
+
+		why is data & code not combined into a single section - 13
+		why is heap and stack seperated - 15
+
+	LDD and the Loader - 17
+
+	example code #1, static libraries, dynamic libraries, dynamically loaded libraries - 21
+		dynamic libraries - 21
+		static libraries - 23
+		dynamically loaded libraries - 25
+
+Kernel layer - 28
+		porquet thinkpad user - 28
+	portable parts of the OS - 30
+	machine-dependent parts of the OS - 31
+
+	OS interface layers: API, UAPI, HAL, ISA+ABI - 32
+		API application programming interface - 33
+		UAPI user API - 33
+		HAL hardware abstraction layer - 34
+		ISA istruction set architecure - 35
+		ABI application binary interace - 35
+				
+	kernel structures - 36
+				*KERNEL_STRUCTURE_loud.mp3* - 36
+		monolithic kernel - 37			
+		micro kernel - 39
+		hybrid kernel - 45
+
+	simplified linux internal structure - 46
+wvwvwvwvwvwvwvwwvwvwvwvw OS Structure wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 1 wvwvwvwvwvwvwvwwvwvwvwvw
+introduction - 0
+
+wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX OS OVERVIEW XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
