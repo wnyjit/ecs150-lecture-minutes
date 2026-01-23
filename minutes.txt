@@ -157,11 +157,12 @@ continue types of syscalls - 1
 		pipe() - 33
 			example program 1 - 33
 			example program 2 - 36
-				"This is how a shell forks" - 45
+				"this is how you pipe in a shell" - 44
 
 	signals - 45
 		SIGSEGV SIGINT SIGKILL SIGCHLD SIGSTOP SIGCONT - 46
-		raise() kill() alarm() setitimer() sigprocmask() sigpending() sigaction() pause() - 51
+			SIGSTOP and SIGKILL cannot be ignored - 50
+		raise() kill() alarm() setitimer() sigprocmask() sigpending() sigaction() pause() - 50
 			example program 1 - 52
 				"we will kill ourselves" - 52
 
