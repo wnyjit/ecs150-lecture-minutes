@@ -140,12 +140,9 @@ continue types of syscalls - 1
 		first 3 are prefilled STDIN STDOUT STDERR - 2
 		fprintf() - 5
 		fd redirections - 8
-
 		dup2() - 11
 			why use dup2() over open() - 17
-
 		stat() fstat() - 19
-		
 		getcwd() chdir() opendir() closedir() readdir() - 20
 
 	pipes - 24
@@ -224,9 +221,63 @@ wvwvwvwvwvwvwvwwvwvwvwvw OS Structure wvwvwvwvwvwvwvwwvwvwvwvw
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 1 wvwvwvwvwvwvwvwwvwvwvwvw
-introduction - 0
+introduction to process abstraction - 0
+	what is a process, source code, executable, program - 1
+		.text, .data, heap, stack - 2
+		stack pointer, program counter - 4
+	the kernel is a process itself - 4
+	processes are bigger than programs - 6
 
+	protection - 7
+	
+	in-depth process definition - 10
+
+protected execution, process run with limited rights - 11
+	limited privilege execution, interpreted execution, native execution - 14
+	
+dual mode operation - 18
+	kernel mode, user mode - 19
+		protection rings - 22
+		hardware support - 24
+			privileged instructions - 24
+			memory protection - 27
+			timer interrupts - 28
+			mode switch - 29
+	5 stage pipeline - 31
+		status register - 35
 wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 2 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+
+privileged instruction, ISA instruction set architecutre - 4
+		CLI clear interrupt flag - 5
+		mips manual- 8
+memory protection - 11
+	virtual memory solves the shortcomings of memory protection - 17
+computer boot sequence - 19
+		*you_just_bought_a_new_car_LOUD.mp3* - 23
+timer interrupts - 25
+	tick, jiffy - 27
+mode switching - 31
+	user to kernel switching, for only 3 reasons - 31
+		exceptions - 32
+			synchronous event - 35
+		interrupts - 36
+			polling - 38
+					*YOU_TELL_ME_loud.mp3* - 39
+			asynchronous event - 39
+		syscall - 40
+	kernel to use switching, for x reasons - 43
+		returning from an interrupt or syscall - 43
+		process context switch - 44
+		new process start - 45
+		signal handling - 48
+wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 2 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 3 wvwvwvwvwvwvwvwwvwvwvwvw
+x - x
+wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 3 wvwvwvwvwvwvwvwwvwvwvwvw
 
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
