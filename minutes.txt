@@ -253,12 +253,16 @@ previous lecture recap - 0
 privileged instruction, ISA instruction set architecutre - 4
 		CLI clear interrupt flag - 5
 		mips manual- 8
+		
 memory protection - 11
 	virtual memory solves the shortcomings of memory protection - 17
+	
 computer boot sequence - 19
 		*you_just_bought_a_new_car_LOUD.mp3* - 23
+		
 timer interrupts - 25
 	tick, jiffy - 27
+	
 mode switching - 31
 	user to kernel switching, for only 3 reasons - 31
 		exceptions - 32
@@ -268,7 +272,7 @@ mode switching - 31
 					*YOU_TELL_ME_loud.mp3* - 39
 			asynchronous event - 39
 		syscall - 40
-	kernel to use switching, for x reasons - 43
+	kernel to use switching, for 4 reasons - 43
 		returning from an interrupt or syscall - 43
 		process context switch - 44
 		new process start - 45
@@ -276,7 +280,35 @@ mode switching - 31
 wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
 wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 3 wvwvwvwvwvwvwvwwvwvwvwvw
-x - x
+previous lecture recap - 0
+	reasons for switching modes, user to kernel - 0
+	reasons for switching modes, kernel to user - 2
+	
+how to perform mode switching - 3 
+		*THE_MACHINE_loud.mp3* - 5
+	requirements for safe and efficient switching - 5
+		atomic transfer of control - 5
+		exception vector - 6
+		transparent, restartable execution - 6
+		
+		atomic transfer of control in depth - 7
+			the switch must not be interrupted - 9
+			
+			steps of mode switching for user to kernel - 11
+				"we assume the kernel may not be interrupted" - 14
+			steps of mode switching for kernel to user - 14
+			
+		exception vector in depth - 16
+			software managed - 21
+			hardware managed - 22
+			
+		transparent & restartable execution - 23
+			software managed - 23
+			hardware managed - 27
+			
+kernel stack, PC, SP, register file, context saving for 1 process - 28
+	"why do we need a specific kernel stack?" - 34
+	context saving for 2 processes - 38	
 wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 3 wvwvwvwvwvwvwvwwvwvwvwvw
 
 
@@ -288,6 +320,115 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PROCESS MANAGEMENT XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+wvwvwvwvwvwvwvwwvwvwvwvw Process Scheduling 1 wvwvwvwvwvwvwvwwvwvwvwvw
+process definition recap - 0
+
+process characteristics - 2
+	address space - 2
+		.code .data, heap, stack - 4
+		malloc() - 7
+		fork() - 9
+				*PRINTF()_loud.mp3* - 14
+	environment, PCB process control block - 18
+	execution flow - 19
+		sequential order - 19
+			signals break sequential - 21
+				
+scheduling concepts - 22
+	CPU burst, IO burst - 25
+	CPU bound process, IO bound process, mix bound process - 28
+	
+	multitasking - 32
+		cooperative - 33
+		preemptive - 36
+		
+	process lifecycle diagram - 38
+		zombie process - 40
+			what happens if parent dies before child - 42
+					lol - 45
+				SIGHUP, reparenting - 47
+wvwvwvwvwvwvwvwwvwvwvwvw Process Scheduling 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw Process Scheduling 2 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+
+scheduling vocabulary - 8
+	task & process - 8
+	submission time / arrival time - 10
+	exit time - 11
+	turnaround time / turnout time - 11
+	response time - 12
+	waiting time - 14
+	
+scheduling algorithms - 16
+	FCFS first come first serve / FIFO first in first out - 16
+		convoy effect - 20
+	SJF shortest job first - 21
+		"its impossible in real life" - 22
+	Preemptive SJF / SRTF shortest remaining time first - 24
+		starvation - 25
+		
+	optimizing for turnaround time vs response time - 27
+		SJF example - 29
+		
+	RR round robin - 30
+		time slice - 31
+
+	multi level queue scheduling - 36
+	multi level feedback queue - 40
+wvwvwvwvwvwvwvwwvwvwvwvw Process Scheduling 2 wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+wvwvwvwvwvwvwvwwvwvwvwvw Concurrency and Threads 1 wvwvwvwvwvwvwvwwvwvwvwvw
+introduction, concurrency vs sequential - 0
+	kitchen example - 1
+	concurrency is NOT parallelism - 2
+
+	process concurrency - 3
+		the gcc compiler can compile things in parallel - 5
+
+types of concurrency - 7
+	sequential execution - 7
+	CPU virtualization - 7
+	IO concurrency - 9
+	CPU parallelism - 10
+
+speedup, company example - 12
+	ideal / linear - 13
+	sublinear, the company starts to slow - 14
+	superlinear, cooking example - 16
+
+processes are slow to fork() and context switch - 19
+
+threads introduction - 20
+	example - 22
+	rationale for threads - 25
+		the real world is concurrent - 25
+		threading is more responsive - 28
+		threading makes for faster execution - 28
+		no need for IPC - 29
+
+example of multi threaded applications - 30
+	web server - 30
+
+
+wvwvwvwvwvwvwvwwvwvwvwvw Concurrency and Threads 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX PROCESS MANAGEMENT XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
