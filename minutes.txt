@@ -418,11 +418,44 @@ threads introduction - 20
 		threading makes for faster execution - 28
 		no need for IPC - 29
 
-example of multi threaded applications - 30
-	web server - 30
+	example of multi-threaded applications - 30
+		web server - 30
+				*ehm_loud.mp3* - 33
+		array computation - 33
+			parallel computation is not possible by forking - 36
 
+	thread characteristics - 38
+		execution context - 38
+		process environment - 39
+		address space - 41
+			threads share heap and global vars but not stack - 41
+		TCB thread control block, PCB process control block - 46
 
+		differences between threads and processes - 48
 wvwvwvwvwvwvwvwwvwvwvwvw Concurrency and Threads 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw Concurrency and Threads 2 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	concurrent definition, sequential definition - 0
+	concurrency isnt parallelism - 1
+	threads vs processes - 3
+
+thread implementation - 4
+	thread API - 4
+
+	kernel level threads / one to one model - 8
+		non-multi-threaded example - 9
+		mutlithreaded example - 11
+		context switching procedure - 12
+	user level threads / many to one model - 14
+		thread library - 14
+		multi-threading example - 15
+		context switching procedure - 16
+			"but if one thread blocks on IO..." - 19
+	direct comparison between kernel level threads and user level threads - 20
+		go vs java - 23
+
+wvwvwvwvwvwvwvwwvwvwvwvw Concurrency and Threads 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
