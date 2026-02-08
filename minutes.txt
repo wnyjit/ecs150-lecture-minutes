@@ -351,7 +351,7 @@ scheduling concepts - 22
 		cooperative - 33
 		preemptive - 36
 		
-	process lifecycle diagram - 38
+	process lifecycle diagram, process states, ready state, running state, blocked state, zombie state  - 38
 		zombie process - 40
 			what happens if parent dies before child - 42
 					lol - 45
@@ -443,18 +443,37 @@ previous lecture recap - 0
 thread implementation - 4
 	thread API - 4
 
-	kernel level threads / one to one model - 8
-		non-multi-threaded example - 9
-		mutlithreaded example - 11
-		context switching procedure - 12
-	user level threads / many to one model - 14
-		thread library - 14
-		multi-threading example - 15
-		context switching procedure - 16
-			"but if one thread blocks on IO..." - 19
-	direct comparison between kernel level threads and user level threads - 20
-		go vs java - 23
+kernel level threads / one to one model - 8
+	non-multi-threaded example - 9
+	mutlithreaded example - 11
+	context switching procedure - 12
+user level threads / many to one model - 14
+	thread library - 14
+	multi-threading example - 15
+	context switching procedure - 16
+		"but if one thread blocks on IO..." - 19
+direct comparison between kernel level threads and user level threads - 20
+	go vs java - 23
+		
+types of threads - 24
+	single thread process - 24
+	multi-threaded userlevel - 24
+	multi-threaded kernel level - 25
+	in-kernel threads - 25
+		idle thread, thread migration, OOM reaper, disk writeback - 25
+		
+thread scheduling - 27
+	cooperative - 27
+	preemptive - 29
+	
+POSIX threads - 31
 
+thread issues - 32
+	forking inside a thread function - 32
+	data sharing, race condition - 36
+	certain signals can identify threads but other signals cant - 39
+	libraries, strtok(), global variables, errno - 42
+		reentrant function - 48
 wvwvwvwvwvwvwvwwvwvwvwvw Concurrency and Threads 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -468,7 +487,77 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX SYNCHRONIZATION XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 1 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	two types of thread data sharing - 1
+		independent sharing - 1
+		cooperative sharing - 2
+				*ISSUE_loud.mp3* - 3
+				
+concurrency issues, thread scheduling - 3
+	indeterministic interleavings - 5
+		atomic statements & example - 6
+				*ORIGINALLY_loud.mp3* - 10
+	instruction reordering - 13
+		compiler instruction reodering - 13
+		hardware instruction reordering - 15
+		multi-word operations - 15
+		
+race conditions - 18
+	race conditions kill people - 20
+
+roomate milk example - 22
+	properties of correctness: safety, liveness - 24
+	solution attempt #1 - 25
+		why it doesnt work - 28
+	solution attempt #2 - 30
+		why it doesnt work, safe but not live - 32
+	solution attempt #3 - 34
+		why it works, safe & live, but confusing - 35
+			busy waiting - 40
+	peterson's algorithm - 41
+	
+extra vocab - 42
+	critical section - 42
+	safety, liveness, bounded waiting, failure atomicity - 43
+	mutual exclusion - 44
+	
+back to roomate milk example - 45
+wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 2 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+		*CONCURRENTLY_loud.mp3* - 0
+	milk example vocab - 1
+	
+synchronization primitive - 4
+	lock - 4
+		implementing locks, avoiding preemption - 8
+		problem with locks - 11
+		multiprocessor spinlocks, test and set, hardware support for parallel locks - 14
+			implementation - 20	
+			going back to roomate milk example - 24
+				it works but it spins - 25
+			cheap busy waiting, "lowk might be worse" - 27
+	semaphore - 32
+		generalized lock - 33
+		semaphore API, down() p(), up() v() - 35
+		binary semaphore - 39
+		counted semaphore - 42
+		
+wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 2 (incomplete!) wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX SYNCHRONIZATION XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
