@@ -308,7 +308,7 @@ how to perform mode switching - 3
 			
 kernel stack, PC, SP, register file, context saving for 1 process - 28
 	"why do we need a specific kernel stack?" - 34
-	context saving for 2 processes - 38	
+	context saving for 2 processes - 38
 wvwvwvwvwvwvwvwwvwvwvwvw Kernel Abstraction 3 wvwvwvwvwvwvwvwwvwvwvwvw
 
 
@@ -535,23 +535,115 @@ wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 2 wvwvwvwvwvwvwvwwvwvwvwvw
 previous lecture recap - 0
 		*CONCURRENTLY_loud.mp3* - 0
 	milk example vocab - 1
+	safety and liveness - 3
+	mutual exclusion - 3
+
 	
 synchronization primitive - 4
 	lock - 4
 		implementing locks, avoiding preemption - 8
 		problem with locks - 11
 		multiprocessor spinlocks, test and set, hardware support for parallel locks - 14
-			implementation - 20	
+			spinlock implementation - 20	
 			going back to roomate milk example - 24
-				it works but it spins - 25
+			spinlocks waste CPU - 25
+				it has low latency - 27
 			cheap busy waiting, "lowk might be worse" - 27
-	semaphore - 32
-		generalized lock - 33
+			blocking spinlock - 31
+			
+	semaphore, generalized lock - 32
 		semaphore API, down() p(), up() v() - 35
+		sem implementation, protect sem manipulation with locks - 38
 		binary semaphore - 39
+			mutex vs sem - 41
 		counted semaphore - 42
+wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 2 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 3 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	locks - 0
+	disabling interrupts is impractical for users - 1
+	spinlocks, test and set - 1
+	semaphore, down() up() - 4
+	binary sem - 6
+	counted sem - 7
+	
+classic synchronization examples - 8
+	producers consumers problem - 9
+		code solution #1 - 12
+			two main issues - 16
+		code solution #2, binary sem - 18
+		code solution #3, counted sem - 20
 		
-wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 2 (incomplete!) wvwvwvwvwvwvwvwwvwvwvwvw
+	readers writers problem - 25
+			*LOUD.mp3* - 26
+		code solution #1 - 29
+		code solution #2, writer can write only when all readers are gone - 34
+		code solution #3, adding new lock - 36
+			writers can starve - 38
+			
+closing remarks on semaphores - 39
+	monitors - 43
+	
+synchronization barriers - 44
+
+synchronization big picture - 46
+wvwvwvwvwvwvwvwwvwvwvwvw Synchronization 3 wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+wvwvwvwvwvwvwvwwvwvwvwvw Deadlocks 1 wvwvwvwvwvwvwvwwvwvwvwvw
+introduction - 0
+	example code - 1
+	dining philosophers - 6
+	starvation - 11
+	deadlock - 12
+	
+resource allocation graph - 14
+	deadlocks are cycles - 17
+	
+deadlock 4 conditions (all 4 must be met) - 17
+	mutual exclusion / bounded resources - 18
+	hold and wait - 20
+	no preemption - 21
+	circular wait - 22
+	
+deadlock 4 strategies - 23
+	ostrich algorithm, the nuclear option - 26
+	detection and recovery - 30
+		detection using the resource allocaion graph - 32
+		recovery by 3 methods - 33
+			kill task - 33
+			rollback task - 34
+			resource preemption - 36
+		cycle detection algorithm - 37
+				*SIX_loud.mp3* - 40
+wvwvwvwvwvwvwvwwvwvwvwvw Deadlocks 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw Deadlocks 2 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	starvation, deadlock - 0
+	4 deadlock conditions, mutual exclusion, hold & wait, no preemption, circular wait - 3
+	4 deadlock strategies, ostrich, detection & reccovery, dynamic avoidance, prevention - 5
+	
+continuing 4 deadlock strategies - 8
+	dynamic avoidance - 8
+		safe state, unsafe state - 9
+		banker's algorithm - 12
+			example #1 - 14
+			example #2 - 22
+	prevention - 27
+		more resources & virtulization - 29
+		lock free resources - 32
+		no preemption - 37
+		preventing circular waits by ordering - 40
+
+livelock - 42
+deadlock strategies in real life - 45
+	locks free data structures - 48
+		lock free stack - 51
+	transactional memory - 1.00
+wvwvwvwvwvwvwvwwvwvwvwvw Deadlocks 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -564,18 +656,78 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
-================================================================================================================================
-================================ OS OVERVIEW ===================================================================================
-================================================================================================================================
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX STORAGE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-+=+=+=+=+=+=+=+= OS Introduction +=+=+=+=+=+=+=+=
+wvwvwvwvwvwvwvwwvwvwvwvw Storage 1 wvwvwvwvwvwvwvwwvwvwvwvw
+introduction - 0
+	memory heirarchy - 0
+		volitile memory - 0
+		secondary storage - 4
+	
+memory technology - 8
+	SRAM static random access memory: technology behind caches - 8
+	DRAM dynamic random acess memory - 10
+		"dynamic" capacitors leak so you must refresh it - 10
+	HDD hard disk drive / magnetic disk - 12
+	SSD solid state drive / flash - 14
+	
+dive into magnetic disks - 16
+	anatomy of disk - 16
+		platters - 16
+		surfaces, both sides of platter - 17
+		spindle & motor - 18
+		head - 18
+		arm & arm assembly - 19
+		tracks & sectors - 20
+		cylinder - 21
+	history - 21
+	tracks - 22
+		sectoring: uniform sectoring & ZBR zone bit recording - 24
+		velocity: CLV constant linear velocity & CAV constant angular velocity - 25
+	sector - 27
+		header, data, trailer / ECC error correcting codes - 27
+		addressing: CHS cylinder head sector, LBA logical block address - 29
+	track skewing - 30
+	corrupted sectors - 33
+		solution # 1, spare sectors - 33
+		solution #2, slip sparing - 35
+	disk operation - 35
+		1. disk moves arm to correct cylinder (seek time + settle time) - 35
+		2. wait for sector to appear on head (rotation time) - 36
+		3. read/write sector as it spins (transfer time) - 37
+		access time - 37
+	disk performance - 38
+		seek time - 38
+		rotation time - 41
+		transfer time - 42
+		example performance toshiba hdd - 44
+			seek time is longer for writing than reading - 45
+			500 random reads - 46
+			500 sequential reads - 50
+			
+disk scheduling - 52
+wvwvwvwvwvwvwvwwvwvwvwvw Storage 1 wvwvwvwvwvwvwvwwvwvwvwvw
 
-+=+=+=+=+=+=+=+= OS Introduction +=+=+=+=+=+=+=+=
+wvwvwvwvwvwvwvwwvwvwvwvw Storage 2 wvwvwvwvwvwvwvwwvwvwvwvw
+asdf
+wvwvwvwvwvwvwvwwvwvwvwvw Storage 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
-================================================================================================================================
-================================================================================================================================
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX STORAGE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-================================================================================================================================
-================================ OS OVERVIEW ===================================================================================
-================================================================================================================================
+
+
+
+
+
+
+
+
 
