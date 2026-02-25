@@ -699,7 +699,7 @@ dive into magnetic disks - 16
 		1. disk moves arm to correct cylinder (seek time + settle time) - 35
 		2. wait for sector to appear on head (rotation time) - 36
 		3. read/write sector as it spins (transfer time) - 37
-		access time - 37
+		access time = seek time + rotation time + transfer time - 37
 	disk performance - 38
 		seek time - 38
 		rotation time - 41
@@ -708,13 +708,81 @@ dive into magnetic disks - 16
 			seek time is longer for writing than reading - 45
 			500 random reads - 46
 			500 sequential reads - 50
-			
-disk scheduling - 52
 wvwvwvwvwvwvwvwwvwvwvwvw Storage 1 wvwvwvwvwvwvwvwwvwvwvwvw
 
 wvwvwvwvwvwvwvwwvwvwvwvw Storage 2 wvwvwvwvwvwvwvwwvwvwvwvw
-asdf
+previous lecture recap - 0
+	sram dram - 0
+	secondary storage, magnetic disk, flash memory - 1
+		access time = seek time + rotation time + transfer time - 2
+		random vs sequential reads - 3
+		
+magnetic disk scheduling - 4
+	fcfs first come first serve, fifo - 6
+	sstf shortest seek time first - 9
+	scan, elevator algorithm - 12
+	c-scan, circular elevator algorithm - 15
+	c-look - 17
+	r-cscan - 17
+	f-scan - 19
+	n-scan - 21
+	"there is no best..." - 22
+	
+example performance using c-look - 23
+		*porquet_face.mp4* - 28
+			
+flash storage - 29
+	general characteristics - 29
+	NOR vs NAND - 30
+	"heres how it works" - 31
+		transistors, control, drain, source, floating gate, threshold - 31
+		how to read information - 36
+	single level vs mutli level - 38
+	organization: pages, blocks, planes, di - 39
+	read page, write page, erase block, page unit - 40
+		you can only write to empty page - 41
+		you can only reset page if you reset entire block - 42
+		example page writing - 43
+	flash translation layer / write remapping - 46
+	durability issues - 49
+		solutions - 50
+	example performance intel ssd - 54
+		"we can just use fifo!" - 55
 wvwvwvwvwvwvwvwwvwvwvwvw Storage 2 wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+wvwvwvwvwvwvwvwwvwvwvwvw FS Abstraction 1 wvwvwvwvwvwvwvwwvwvwvwvw
+introduction - 0
+	requirements expected of mass storage - 0
+	filesystem - 3
+	
+filesystem concepts - 5
+	files - 5
+	metadata - 6
+	data - 6
+	directory, "a file doesnt know its own name" - 7
+	conventions, length, extension, case sensitivity - 9
+		magic number at start of file to identify its format - 12
+		shebang #! - 14
+	path, absolute path, relative path, current directory, parent directory - 15
+	hard link - 17
+		directed graph - 19
+		cycles are bad - 20
+		hardlinks are forbidden on directories, DAG directed acyclic graph - 22
+	soft link / symobolic links / symlinks - 24
+	volume - 27
+	partitions, MBR master boot record, GPT - 30
+	drive letter assignment (windows) - 32
+	VFS virtual file system / unified file system / mounting (unix) - 34
+		fstab - 37
+	software layers - 38
+	typcial filesystem API - 44
+		create(), link() unlink() - 44
+			example - 46
+		open() close() - 47
+		
+wvwvwvwvwvwvwvwwvwvwvwvw FS Abstraction 1 (unfinished!) wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
