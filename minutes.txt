@@ -752,7 +752,7 @@ wvwvwvwvwvwvwvwwvwvwvwvw Storage 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-wvwvwvwvwvwvwvwwvwvwvwvw FS Abstraction 1 wvwvwvwvwvwvwvwwvwvwvwvw
+wvwvwvwvwvwvwvwwvwvwvwvw FS Abstraction wvwvwvwvwvwvwvwwvwvwvwvw
 introduction - 0
 	requirements expected of mass storage - 0
 	filesystem - 3
@@ -777,12 +777,84 @@ filesystem concepts - 5
 	VFS virtual file system / unified file system / mounting (unix) - 34
 		fstab - 37
 	software layers - 38
-	typcial filesystem API - 44
+	typical filesystem API - 44
 		create(), link() unlink() - 44
 			example - 46
 		open() close() - 47
+		read() write() seek() mmap() munmap() - 53
 		
-wvwvwvwvwvwvwvwwvwvwvwvw FS Abstraction 1 (unfinished!) wvwvwvwvwvwvwvwwvwvwvwvw
+wvwvwvwvwvwvwvwwvwvwvwvw FS Abstraction wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+wvwvwvwvwvwvwvwwvwvwvwvw FS Implementation 1 wvwvwvwvwvwvwvwwvwvwvwvw
+introduction - 0
+	filesystem - 0
+	directory - 1
+	file 2
+	
+filesystem 4 objectives - 3
+	performance - 3
+	flexibility - 4
+	persistance - 5
+	reliability - 6
+	
+filesystem design considerations - 7
+	workload - 7
+	file acess and IO transfer + chrome example - 9
+	file access pattern and usage - 12
+	block vs disk sectors - 14
+		big block size - 16
+		small block size - 18
+	review: small files vs large files - 19
+
+implementation considerations - 22
+		*nuke_goes_off_outside.mp4* - 22
+	data structures for directories, index structure, free space map - 24
+	
+directory implementation, "its just a file" - 26
+	opendir() readdir() - 27
+	hierarchy - 28
+		flat hierarchy - 28
+		multi user flat hierarchy - 28
+		multi user multi level hierarchy - 29
+	layout - 30
+		linear layout - 30
+		list layout - 32
+		tree layout - 34
+	index structure - 36
+		5 goals - 36
+		contiguous allocation - 38
+				fragmentation explained - 43
+					internal fragmentation - 43
+					external fragmentation - 44
+		linked list allocation - 45
+wvwvwvwvwvwvwvwwvwvwvwvw FS Implementation 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw FS Implementation 2 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	directory implementation - 2
+	index structures - 3
+
+continuing index structures - 6
+	dirtect allocation - 6
+	indexed allocation - 9
+	linked index blocks - 13 
+	multi level index blocks - 17
+	
+MS FAT microsoft file allocation table - 21
+	introduction - 22
+	FAT file allocation table - 25
+	example - 26
+	next fit algorithm - 32
+	directory structure - 34
+	FAT doesnt allow hard links - 37
+	layout on disk - 39
+	locality issues - 40
+		defragmentation to fix - 41
+	conclusion - 42
+		cons - 43
+wvwvwvwvwvwvwvwwvwvwvwvw FS Implementation 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
