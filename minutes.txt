@@ -856,6 +856,51 @@ MS FAT microsoft file allocation table - 21
 		cons - 43
 wvwvwvwvwvwvwvwwvwvwvwvw FS Implementation 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
+wvwvwvwvwvwvwvwwvwvwvwvw FS Implementation 3 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	MS FAT - 0
+		optimizations - 2
+		limitations - 3
+		
+FFS fast file system - 4
+	inodes - 5
+	inode array - 7
+	inode structure, file meta data - 8
+	asymmetric tree index structure, multi level index - 12
+		indirect block, double indirect block, triple indirect block - 14
+	characteristics of FFS - 15
+		tree structure - 15
+		high degree - 16
+		fixed structure - 17
+		asymmetric - 18
+	inode pointers - 18
+		direct - 18
+		indirect - 20
+		double indirect - 20
+		triple indirect - 21
+	small file support - 22
+		"what if we weren't using an asymetric tree?" - 23
+				sparse file - 25
+	spare file support - 27
+	directory structure - 30
+		two default entries: . & .. - 31
+	free space management - 32
+		bitmap data structure - 33
+	disk layout - 34
+		super block - 34
+		inode bitmap - 34
+		block bitmap - 35
+	example file reading - 36
+			root directory is always inode #2 - 36
+	locality characteristics - 40
+		problem: hdd jumps between inode array & data blocks - 41
+		solution: block groups - 42
+			put files from same directory into same group - 43
+			first fit strategy - 44
+		reserved space - 47
+	conclusion - 50
+wvwvwvwvwvwvwvwwvwvwvwvw FS Implementation 3 wvwvwvwvwvwvwvwwvwvwvwvw
+
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX STORAGE XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -863,6 +908,60 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
+
+
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX VIRTUAL MEMORY XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 1 wvwvwvwvwvwvwvwwvwvwvwvw
+introduction - 0
+	ideal memory vs in practice memory - 0
+			*Main_memory_loud.mp3* - 1
+	the future & memristor - 3
+		the CPU can handle it - 4
+
+uniprogramming - 6
+	issues - 8
+multiprogramming, swapping - 10
+	issues - 12
+		swapping is slow - 12
+		not true multiprogramming - 13
+		
+true multiprogramming requirements - 13
+	transparency - 13
+	safety - 15
+	efficiency - 15
+	flexibility - 16
+	
+meeting the multiprogramming requirements - 18
+	multiple apps running in memory - 18
+		relocation - 18
+		protection - 20
+		contiguous memory allocation - 20
+			bound & base - 22
+			static approach - 23
+				issues - 29
+			dynamic approach - 30
+				implementation - 32
+				pro and con - 35
+
+contiguous memory allocation, first fit, best fit, worst fit - 36
+	issues - 38
+	compaction - 40
+	swapping - 41
+	conclusion, dynamic pro and con - 43
+wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX VIRTUAL MEMORY XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
