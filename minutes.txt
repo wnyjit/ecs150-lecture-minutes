@@ -993,6 +993,60 @@ page table introduction - 40
 	advantages - 48
 wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
+wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 3 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	segment table - 2
+	drawbacks of memory segmentation - 3
+	paged memory - 5
+	
+page memory continued - 7
+	page memory is huge - 7
+	page size observations: big pages, small pages, medium pages - 12
+	most processes dont use their entire address space - 15
+		example code - 16
+			/proc/ - 16
+			pmap - 19
+			
+page segmentation - 23
+	issue: limited number of segments - 26
+	
+multi level paging - 26
+	issue: additional memory lookups - 31
+	its popular - 33
+	
+speed efficient paging - 33
+	locality of reference - 34
+	working set of a process - 35
+	
+TLB translation lookaside buffer - 37
+	TLB hit, TLB miss - 38
+	"most of the time we onyl pay cost of TLB" - 39
+	TLB lookup - 40
+	L1 TLB vs L2 TLB - 41
+	
+	hardware controlled TLB miss - 42
+		page table base register - 42
+		pros & cons - 43
+	software controlled TLB miss - 44
+		pros & cons - 45
+	
+	TLB issues - 46
+		context switch - 46
+			tagged TLB - 49
+		consistency - 51
+			local processor - 52
+			mutlicore - 53
+				TLB shootdown - 53
+				
+features of address translation for virtual memory - 53
+wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 3 wvwvwvwvwvwvwvwwvwvwvwvw
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+wvwvwvwvwvwvwvwwvwvwvwvw Demand Paging wvwvwvwvwvwvwvwwvwvwvwvw
+asdf
+wvwvwvwvwvwvwvwwvwvwvwvw Demand Paging wvwvwvwvwvwvwvwwvwvwvwvw
+
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX VIRTUAL MEMORY XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
