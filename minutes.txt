@@ -29,7 +29,7 @@ hardware components - 8
 		cache bus, memory bus, backside, frontside  - 18
 
 OS Roles - 19
-	Referee: resource allocation, isolation, communication - 19
+	Referee resource allocation, isolation, communication - 19
 	Illusionist: resource virtualization - 23 
 	Glue: common services, provides hardware abstraction - 25
 
@@ -956,6 +956,42 @@ contiguous memory allocation, first fit, best fit, worst fit - 36
 	swapping - 41
 	conclusion, dynamic pro and con - 43
 wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 1 wvwvwvwvwvwvwvwwvwvwvwvw
+
+wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 2 wvwvwvwvwvwvwvwwvwvwvwvw
+previous lecture recap - 0
+	main memory issues - 0
+	contiguous memory allocation - 1
+		problems - 4
+		
+memory segmentation - 6
+	multiple base bound - 7
+	segfaults - 12
+	segment sharing - 14
+	advantages - 16
+	drawbacks - 17
+	
+paged memory - 22
+	virtual pages & page frames - 22
+	"it doesnt have to be contiguous anymore" - 24
+	segments can grow - 25
+	solves external fragmentation & introduces internal fragmentation - 26
+	page frames - 28
+		constructing the physical address: frame number, offset - 29
+		physical address example - 31
+			rewrite in binary - 32
+			splitting into frame & offset - 34
+	virtual pages - 39
+
+page table introduction - 40
+	page table - 42
+	page fault - 44
+	details - 45
+		one table per process - 45
+			up to kernel to build page table - 45
+		stored in physical memory - 45
+		PTE page table entry, PTE flags - 46
+	advantages - 48
+wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 2 wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
