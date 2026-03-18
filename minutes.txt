@@ -1044,7 +1044,38 @@ wvwvwvwvwvwvwvwwvwvwvwvw Address Translation 3 wvwvwvwvwvwvwvwwvwvwvwvw
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 wvwvwvwvwvwvwvwwvwvwvwvw Demand Paging wvwvwvwvwvwvwvwwvwvwvwvw
-asdf
+address translation recap - 0
+	issues - 1
+		locality of reference, temporal locality, spatial locality - 3
+		
+working set, idea behind demand paging - 5
+
+demand paging - 6
+	resident page - 7
+	non resident page - 8
+		page fault - 9
+		swap space - 11
+	
+	solving the page fault - 12
+		"how is this still performant?" - 17
+		
+	page frame allocation - 18
+		steps for replacing page frame - 19
+		needing to write back or not - 21
+		
+	PTE bookkeeping - 23
+		TLB modified bit - 24
+		example - 27
+		
+	page replacement algorithms - 28
+		random - 28
+		FIFO - 30
+			belady's anomaly - 36
+		MIN / optimal - 38
+		LRU least recently used - 40
+			software vs hardware implementation - 43
+		clock algorithm - 44
+			second chance - 46
 wvwvwvwvwvwvwvwwvwvwvwvw Demand Paging wvwvwvwvwvwvwvwwvwvwvwvw
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -1055,8 +1086,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 
+the end ❤️ 😁 🤣 😂 😘 💕 😍 👌 👍 
+ヽ(✿ﾟ▽ﾟ)ノ   (￣_,￣ )   φ(*￣U￣)    ( ͡°( ͡° ͜ʖ( ͡° ͜ʖ ͡°)ʖ ͡°) ͡°)   ^0^   ^_____^   Y.Y   =P   ヾ(≧▽≦*)   oq(≧▽≦q)     \^o^/    (〃￣︶￣)人(￣︶￣〃)
 
-
-
-
-
+goodluck!
